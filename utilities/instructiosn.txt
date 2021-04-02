@@ -1,0 +1,10 @@
+=====
+ RUN
+====
+docker build -t <image-name>
+
+docker run -it -v "<absolute-path>:/app" <image-name> npm init
+
+OR
+
+docker-compose run --rm init

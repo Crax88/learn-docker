@@ -1,0 +1,11 @@
+1. docker create network <network-name>
+//init mongo db
+2. docker run -d -e MONGO_INITDB_ROOT_USERNAME=<username> -e MONGO_INITDB_ROOT_PASSWORD=<password> --network <network-name> --name <db-cont-name> mongo
+//init backend
+3. cd back
+4. app.js 86 insert <username>:<password>
+4. docker build -t <back-image> .
+5. docker run -d --name <back-name> --rm -p 80:80 --network <network-name> -v <logs>:/app/logs -v "<absolute-path>:/app" -v /app/node_modules <back-image>
+//init front
+6.docker build -t <front-image> .
+7. docker run --name <front-name> --rm -p 3000:3000 -it -v "<absolut-to-src-folder>:/app/src" <front-image>

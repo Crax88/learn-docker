@@ -1,0 +1,4 @@
+1. docker network create <network_name>
+2. docker run -d mongo -- name mongodb --network
+3. docker build -t <image_name> .
+4. docker run -d -p 3000:3000 --name <container_name> --network <network_name> --rm <image_name>
